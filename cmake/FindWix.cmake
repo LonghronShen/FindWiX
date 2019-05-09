@@ -12,6 +12,9 @@ file(GLOB WIX_FILES
 )
 
 if(WIX_FILES)
+    if(WIX_TOOLSET_VERSION)
+        list(FILTER WIX_FILES INCLUDE REGEX ${WIX_TOOLSET_VERSION})
+    endif()
     list(GET WIX_FILES -1 WIX_LATEST_FILE)
 endif()
 
